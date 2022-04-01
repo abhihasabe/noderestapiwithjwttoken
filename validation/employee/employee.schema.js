@@ -4,7 +4,7 @@ const schema = {
     employee: joi.object({
         employee_name:                  joi.string().max(100).required(),
         employee_dob:                   joi.date().raw().required(),
-        employee_gender:                joi.string().valid("m", "f", "o").required(),
+        employee_gender:                joi.string().valid("Male", "Female", "Other").required(),
         employee_mobileno:              joi.number().integer().min(1000000000).message("Invalid mobile number").max(9999999999).message("Invalid mobile number").required(),
         employee_alternate_mobileno:    joi.number().integer().min(1000000000).message("Invalid mobile number").max(9999999999).message("Invalid mobile number").allow('',null),
         employee_email:                 joi.string().email().required(),

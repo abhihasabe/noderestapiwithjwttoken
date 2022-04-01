@@ -30,7 +30,7 @@ var Employee = function(employee){
 
 // create new company
 Employee.createEmployee = (employeeReqData, result) =>{
-    dbConn.query('SELECT * FROM employee_table WHERE employee_email=?', employeeReqData.company_email, (err, res)=>{
+    dbConn.query('SELECT * FROM employee_table WHERE employee_email=?', employeeReqData.employee_email, (err, res)=>{
         if(err){
             console.log('Error while fetching employee by id', err);
             result(null, err);
@@ -40,7 +40,7 @@ Employee.createEmployee = (employeeReqData, result) =>{
                 dbConn.query('INSERT INTO employee_table SET ? ', employeeReqData, (err, res)=>{
                     if(err){
                         console.log('Error while inserting data');
-                        result(null, err);
+                        result(err, null);
                 }   else{
                         console.log('employee created successfully');
                         result(null, res)

@@ -10,7 +10,7 @@ exports.createNewCompany = (req, res) =>{
         }else if(company == "Email Already Exists") {
             res.json({success:0,  message:company});
         }else{
-            res.json({success:0,  message:"Data Added Successfully"});
+            res.json({success:1,  message:"Data Added Successfully"});
         }
     });
 }
