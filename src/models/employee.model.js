@@ -74,8 +74,8 @@ Employee.login = (employeeReqData,result) =>{
                         if(results==true){
                             var token = jwt.sign(
                                 {
-                                username:res[0].employee_name,
-                                dob:res[0].employee_dob
+                                    employee_name:res[0].employee_name,
+                                    email:res[0].employee_email
                             }, 'secret', 
                             {
                                 expiresIn:"1h"
@@ -93,6 +93,21 @@ Employee.login = (employeeReqData,result) =>{
             }
         }
     })
+}
+
+
+Employee.refresh = (employeeReqData,result) =>{
+    var token = jwt.sign(
+        {
+            employee_name:employeeReqData.employee_name,
+            email:employeeReqData.employee_email
+    }, 'secret', 
+    {
+        expiresIn:"1h"
+    })
+    
+    if(token!=null)
+    result(null, token);
 }
 
 

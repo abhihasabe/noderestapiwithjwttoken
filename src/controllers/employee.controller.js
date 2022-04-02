@@ -29,3 +29,17 @@ module.exports.authentication = (req, res)=> {
         }
     })
 }
+
+
+// Refresh token
+module.exports.refreshToken = (req, res)=> {
+    const employeeReqData = new EmployeeModel(req.body);
+    //console.log('here all Company list');
+    EmployeeModel.refresh(employeeReqData, (err, result) =>{
+        if(err){
+            res.status(500).json({success:0, message:err});
+        }else{
+            res.json({success:1, message:"refresh token successfully",token:result});
+        }
+    })
+}

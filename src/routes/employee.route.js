@@ -13,4 +13,7 @@ router.post('/addEmployee',checkAuth, addEmployeeValidation, employeeController.
 // Login
 router.post('/login',employeeController.authentication);
 
+// Refresh Token
+router.post('/refreshToken',employeeController.refreshToken);
+
 module.exports = router;
