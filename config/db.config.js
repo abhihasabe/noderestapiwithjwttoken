@@ -1,11 +1,13 @@
 const mysql = require('mysql');
 
+require('dotenv').config();
+
 // Set database connection credentials
 const config = {
-    host     : '69.90.221.109',
-    user     : 'mysma745_abhi',
-    password : 'Mayu@7081',
-    database : 'mysma745_cms'
+    host     : process.env.HOST_NAME,
+    user     : process.env.USER,
+    password : process.env.PASSWORD,
+    database : process.env.DATABASE
 };
 
 // Create a MySQL pool
