@@ -1,5 +1,9 @@
 const joi = require("@hapi/joi");
 
+
+const strongPasswordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,15}$/;
+
+
 const schema = {
     employee: joi.object({
         employee_name:                  joi.string().max(100).required(),
@@ -21,6 +25,7 @@ const schema = {
         employee_wcpolicy:              joi.string().allow('',null),
         employee_bank_acno:             joi.string().allow('',null),
         employee_company_id:            joi.number().required(),
+        password:                       joi.string().regex(strongPasswordRegex).message("Password must be strong. At least one upper case alphabet. At least one lower case alphabet. At least one digit. At least one special character. Minimum six in length").required()
     })
 };
 

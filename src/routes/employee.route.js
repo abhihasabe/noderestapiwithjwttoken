@@ -8,4 +8,7 @@ const { addEmployeeValidation } = require('../../validation/employee/employee.va
 // create new company
 router.post('/addEmployee',addEmployeeValidation, employeeController.createNewEmployee);
 
+// Login
+router.post('/login',employeeController.authentication);
+
 module.exports = router;
