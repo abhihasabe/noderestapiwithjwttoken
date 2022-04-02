@@ -2,6 +2,8 @@ const express = require('express');
 var cors = require('cors');
 const bodyParser = require('body-parser');
 
+//const generate_key = require('../CMS/helper/generate_key');
+
 // create express app
 const app = express();
 
@@ -25,6 +27,7 @@ app.use(bodyParser.json());
 // define root route
 app.get('/', (req, res)=>{
     res.send('Hello World');
+    //generate_key;
 });
 
 // import Base routes

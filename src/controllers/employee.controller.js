@@ -4,13 +4,13 @@ const EmployeeModel = require('../models/employee.model');
 module.exports.createNewEmployee = (req, res) =>{
     const employeeReqData = new EmployeeModel(req.body);
     console.log('employeeReqData', employeeReqData);
-    EmployeeModel.createEmployee(employeeReqData, (err, employee)=>{
+    EmployeeModel.createEmployee(employeeReqData, (err, result)=>{
         if(err){
             res.json({success:0, message:err});
-        }else if(employee == "email is already been registered") {
-            res.json({success:0,  message:employee});
+        }else if(result == "email is already been registered") {
+            res.json({success:0,  message:result});
         }else{
-            res.json({success:1,  message:"Data Added Successfully"});
+            res.json({success:1,  message:"Data Added Successfully", data:result});
         }
     });
 }

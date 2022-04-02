@@ -3,7 +3,7 @@ const router = express.Router();
 
 const employeeController = require('../controllers/employee.controller');
 
-const checkAuth = require('../../validation/token/token_validation');
+const checkAuth = require('../../helper/token/token_helper');
 
 const { addEmployeeValidation } = require('../../validation/employee/employee.validation');
 

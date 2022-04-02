@@ -3,7 +3,7 @@ const router = express.Router();
 
 const companysController = require('../controllers/core.controller');
 
-const checkAuth = require('../../validation/token/token_validation');
+const checkAuth = require('../../helper/token/token_helper');
 
 // router.get("/getCountries", checkAuth, function(req, res, next){
 
@@ -24,9 +24,9 @@ router.get('/getCompanyTypes', checkAuth, companysController.getCompanysTypeList
 router.get('/getUserTypes',checkAuth, companysController.getUserType);
 
 //get Attendance Type
-router.get('/getAttendanceTypes', companysController.getAttendanceTypes);
+router.get('/getAttendanceTypes', checkAuth, companysController.getAttendanceTypes);
 
 //get Inventory Type
-router.get('/getInventoryTypes', companysController.getInventoryTypes);
+router.get('/getInventoryTypes', checkAuth, companysController.getInventoryTypes);
 
 module.exports = router;

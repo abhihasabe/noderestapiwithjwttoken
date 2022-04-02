@@ -48,7 +48,7 @@ Employee.createEmployee = (employeeReqData, result) =>{
                         result(err, null);
                 }   else{
                         console.log('employee created successfully');
-                        result(null, res)
+                        result(null, employeeReqData)
                     }
                 });
             }else{
