@@ -31,7 +31,7 @@ app.get('/', (req, res)=>{
 });
 
 // import Base routes
-const baseRoutes = require('./src/routes/core.route');
+const baseRoutes = require('./src/routes/master.route');
 
 // import Company routes
 const companyRoutes = require('./src/routes/company.route');
